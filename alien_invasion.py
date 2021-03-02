@@ -32,3 +32,4 @@ if __name__ == '__main__':
     #Creating a copy of the game and lauching it
     ai = AlienInvasion()
     ai.run_game()
+###################################################################################
