@@ -1,12 +1,11 @@
 import sys
-
 import pygame
 
 from settings import Settings
 from ship import Ship
 
 class AlienInvasion:
-    """A general class designed to magage resources and hot the gaame works"""
+    """A general class designed to manage resources and hot the game works"""
 
     def __init__(self):
         """Initializing the game and creating its resources"""
@@ -22,6 +21,7 @@ class AlienInvasion:
         """Starting the main game loop."""
         while True:
             self._check_events()
+            self.ship.update()
             self._upadte_screen()
 
 
@@ -30,6 +30,12 @@ class AlienInvasion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = False
 
     def _upadte_screen(self):
         """update iamges on the screen and move to a new screen"""
