@@ -26,7 +26,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
+            self._update_bullets()
             self._upadte_screen()
 
 
@@ -62,8 +62,20 @@ class AlienInvasion:
 
     def _fire_bullet(self):
         """Creating a new bullet and adding it to a group of bullets"""
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
+
+    def _update_bullets(self):
+        """Updating the position of bullets and removing those not visible on the screen"""
+
+        #Updating the position bullets
+        self.bullets.update()
+
+        #Remove bullets that are outside the screen
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
 
     def _upadte_screen(self):
         """update iamges on the screen and move to a new screen"""
