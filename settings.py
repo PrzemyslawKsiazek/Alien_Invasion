@@ -21,3 +21,4 @@ class Settings:
         #Alien settings
         self.alien_speed = 1.0
 
+

@@ -88,6 +88,7 @@ class AlienInvasion:
         self.aliens.update()
 
 
+
     def _create_fleet(self):
         """Create a full fleet aliens"""
         #Creating of alien and determining the number of alines who will fit in a row
