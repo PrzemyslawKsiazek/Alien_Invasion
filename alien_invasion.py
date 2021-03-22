@@ -32,6 +32,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_bullets()
+            self._update_aliens()
             self._upadte_screen()
 
 
@@ -82,6 +83,11 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
 
+    def _update_aliens(self):
+        """Update the location of all aliens in the fleet"""
+        self.aliens.update()
+
+
     def _create_fleet(self):
         """Create a full fleet aliens"""
         #Creating of alien and determining the number of alines who will fit in a row
@@ -123,6 +129,7 @@ class AlienInvasion:
 
         # Display the last modified screen
         pygame.display.flip()
+
 
 if __name__ == '__main__':
     #Creating a copy of the game and lauching it

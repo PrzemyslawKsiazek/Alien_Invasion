@@ -20,6 +20,7 @@ class Bullet(Sprite):
 
 
     def update(self):
+
         """Moving a bullet across the screen"""
         #bullet position update
         self.y -= self.settings.bullet_speed
