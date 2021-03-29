@@ -17,10 +17,10 @@ class Scoreboard:
         #Prepare initial images with scoring
         self.prep_score()
 
-    def prepr_score(self):
+    def prep_score(self):
         """Converting a score into a generated image"""
         score_str = str(self.stats.score)
-        self.score_image = self.font.render(score_str, True, self.tetx_color, self.settings.bg_color)
+        self.score_image = self.font.render(score_str, True, self.text_color, self.settings.bg_color)
 
         #Display of scores in the upper right cornen
         self.score_rect = self.score_image.get_rect()
@@ -29,4 +29,4 @@ class Scoreboard:
 
     def show_score(self):
         """Displaying the scores on the screen"""
-        self.screen.blit(self.screen_image, self.screen_rect)
+        self.screen.blit(self.score_image, self.score_rect)
